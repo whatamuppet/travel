@@ -2,6 +2,7 @@
   "name": "travel",
   "version": "0.0.0",
   "scripts": {
+    "generate": "node src/scripts/generateImageJson.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -17,6 +18,8 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "bootstrap": "^5.3.8",
+    "exiftool-vendored": "^35.20.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -24,11 +27,9 @@
     "@angular/build": "^21.2.12",
     "@angular/cli": "^21.2.12",
     "@angular/compiler-cli": "^21.2.0",
-    "@tailwindcss/postcss": "^4.1.12",
     "jsdom": "^28.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.8.1",
-    "tailwindcss": "^4.1.12",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
   }

@@ -1,0 +1,19 @@
+<div class="row g-3 mt-5 container">
+    <div class="col-12 col-md-4" *ngFor="let img of images || []">
+        <div class="card">
+            <img [src]="img.src" class="card-img-top" />
+
+            <div class="card-footer" *ngIf="img.title || img.date">
+                <!-- Title (optional) -->
+                <div *ngIf="img.title">
+                    {{ img.title }}
+                </div>
+
+                <!-- Date (optional) -->
+                <div *ngIf="img.date">
+                    {{ img.date }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
