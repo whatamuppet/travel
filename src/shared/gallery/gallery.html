@@ -1,18 +1,38 @@
 <div class="row g-3 mt-5 container">
     <div class="col-12 col-md-4" *ngFor="let img of images || []">
         <div class="card">
-            <img [src]="img.src" class="card-img-top" />
+
+            <img [src]="img.src" class="card-img-top" (click)="openImage(img)" style="cursor: pointer;" />
 
             <div class="card-footer" *ngIf="img.title || img.date">
-                <!-- Title (optional) -->
-                <div *ngIf="img.title">
-                    {{ img.title }}
-                </div>
+                <div *ngIf="img.title">{{ img.title }}</div>
+                <div *ngIf="img.date">{{ img.date }}</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!-- Date (optional) -->
-                <div *ngIf="img.date">
-                    {{ img.date }}
-                </div>
+<!-- Modal -->
+<div class="modal fade show d-block" *ngIf="selectedImage" tabindex="-1" (click)="closeImage()"
+    style="background: rgba(0,0,0,0.8);">
+    <div class="modal-dialog modal-dialog-centered modal-lg" (click)="$event.stopPropagation()">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" *ngIf="selectedImage.title">
+                    {{ selectedImage.title }}
+                </h5>
+
+                <button type="button" class="btn-close" (click)="closeImage()"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img [src]="selectedImage.src" class="img-fluid rounded" />
+            </div>
+
+            <div class="modal-footer">
+                <h5 *ngIf="selectedImage.date">
+                    {{ selectedImage.date }}
+                </h5>
             </div>
         </div>
     </div>

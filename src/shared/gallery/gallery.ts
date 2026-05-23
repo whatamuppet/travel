@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export interface GalleryImage {
@@ -16,4 +16,19 @@ export interface GalleryImage {
 })
 export class Gallery {
   @Input() images: GalleryImage[] | null = [];
+
+  selectedImage: GalleryImage | null = null;
+
+  openImage(img: GalleryImage) {
+    this.selectedImage = img;
+  }
+
+  closeImage() {
+    this.selectedImage = null;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.closeImage();
+  }
 }
