@@ -29,7 +29,7 @@
                 <img [src]="selectedImage.src" class="img-fluid rounded" />
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer" *ngIf="selectedImage.date">
                 <h5 *ngIf="selectedImage.date">
                     {{ selectedImage.date }}
                 </h5>
